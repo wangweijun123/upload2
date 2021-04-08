@@ -1,0 +1,24 @@
+注解处理器是（Annotation Processor Tool）是javac的一个工具，用来在编译时扫描和编译和处理注解（Annotation）。你可以自己定义注解和注解处理器去搞一些事情。一个注解处理器它以Java代码或者（编译过的字节码）作为输入，生成文件（通常是java文件）。这些生成的java文件不能修改，并且会同其手动编写的java代码一样会被javac编译。
+
+
+
+=============================================================================================
+1.RetentionPolicy.SOURCE —— 编译之后抛弃，存活的时间在源码和编译时
+2.RetentionPolicy.CLASS —— 保留在编译后class文件中,但JVM将会忽略(对于 底层系统开发-开发编译过程 使用)
+apt中source和class都一样
+3.RetentionPolicy.RUNTIME —— 能够使用反射读取和使用.
+注解不只能用于注解处理器来进行处理，也可以运行时反射使用(不推荐使用反射)
+
+=============================================================================================
+
+注解处理器使用 annotationProcessor 引入。
+
+annotationProcessor 和 apt 都是annotation Processor tool 注解处理器的引入方式，
+是使用gradle 的api创建的依赖配置,同样的 compile、implementation、androidTestImplementation等等都是。
+他们由创建者定义了不同的行为。
+我们也可以成为一个创建者定义任意名字、行为的配置。
+有兴趣可以去了解下gradle configurations。
+
+
+
+
